@@ -23,6 +23,8 @@ namespace App
                 }
                 Console.WriteLine("Root cat is disposed.");
             }
+
+            Console.ReadLine();
         }
     }
 }
