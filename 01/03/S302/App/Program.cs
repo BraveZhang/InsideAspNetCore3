@@ -13,9 +13,14 @@ namespace App
                 .Register<IBar, Bar>(Lifetime.Transient)
                 .Register(typeof(IFoobar<,>), typeof(Foobar<,>), Lifetime.Transient);
 
+
+            //cat.GetService<IFoo>();
+            //cat.GetService<IBar>();
             var foobar = (Foobar<IFoo, IBar>)cat.GetService<IFoobar<IFoo, IBar>>();
             Debug.Assert(foobar.Foo is Foo);
             Debug.Assert(foobar.Bar is Bar);
+
+            Console.ReadLine();
         }
     }
 }

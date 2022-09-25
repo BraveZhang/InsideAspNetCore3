@@ -9,3 +9,17 @@ D:\ASP.NET Core 3框架揭秘\samples\上\03\S301\App\obj\Debug\netcoreapp3.0\Ap
 D:\ASP.NET Core 3框架揭秘\samples\上\03\S301\App\obj\Debug\netcoreapp3.0\App.AssemblyInfo.cs
 D:\ASP.NET Core 3框架揭秘\samples\上\03\S301\App\obj\Debug\netcoreapp3.0\App.dll
 D:\ASP.NET Core 3框架揭秘\samples\上\03\S301\App\obj\Debug\netcoreapp3.0\App.pdb
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\bin\Debug\netcoreapp3.0\App.exe
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\bin\Debug\netcoreapp3.0\App.deps.json
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\bin\Debug\netcoreapp3.0\App.runtimeconfig.json
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\bin\Debug\netcoreapp3.0\App.runtimeconfig.dev.json
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\bin\Debug\netcoreapp3.0\App.dll
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\bin\Debug\netcoreapp3.0\App.pdb
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.csproj.AssemblyReference.cache
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.GeneratedMSBuildEditorConfig.editorconfig
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.AssemblyInfoInputs.cache
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.AssemblyInfo.cs
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.csproj.CoreCompileInputs.cache
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.dll
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.pdb
+D:\SourceCode\InsideAspNetCore3\01\03\S301\App\obj\Debug\netcoreapp3.0\App.genruntimeconfig.cache
