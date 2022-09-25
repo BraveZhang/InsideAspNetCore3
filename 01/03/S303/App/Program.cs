@@ -17,6 +17,7 @@ namespace App
             Debug.Assert(services.OfType<Foo>().Any());
             Debug.Assert(services.OfType<Bar>().Any());
             Debug.Assert(services.OfType<Baz>().Any());
+            Console.ReadLine();
         }
     }
 }
