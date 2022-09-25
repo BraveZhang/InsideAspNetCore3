@@ -30,7 +30,7 @@ namespace App
             GetServices<IBar>(cat2);
             GetServices<IBaz>(cat2);
             GetServices<IQux>(cat2);
-
+            Console.ReadLine();
         }
     }
 }
