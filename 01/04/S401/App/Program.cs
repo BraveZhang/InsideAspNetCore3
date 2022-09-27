@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Diagnostics;
 
 namespace App
@@ -15,6 +16,8 @@ namespace App
             Debug.Assert(provider.GetService<IFoo>() is Foo);
             Debug.Assert(provider.GetService<IBar>() is Bar);
             Debug.Assert(provider.GetService<IBaz>() is Baz);
+
+            Console.ReadLine();
         }
     }
 
