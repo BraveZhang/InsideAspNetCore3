@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Diagnostics;
 
 namespace App
@@ -16,6 +17,8 @@ namespace App
             var foobar = (Foobar<IFoo, IBar>)provider.GetService<IFoobar<IFoo, IBar>>();
             Debug.Assert(foobar.Foo is Foo);
             Debug.Assert(foobar.Bar is Bar);
+
+            Console.ReadLine();
         }
     }
 }
