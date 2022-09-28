@@ -23,6 +23,8 @@ namespace App
                 }
                 Console.WriteLine("Root container is disposed.");
             }
+
+            Console.ReadLine();
         }
     }
 
