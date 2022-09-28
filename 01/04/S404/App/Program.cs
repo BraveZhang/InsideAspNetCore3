@@ -28,6 +28,8 @@ namespace App
                 provider.GetService<T>();
                 provider.GetService<T>();
             }
+
+            Console.ReadLine();
         }
     }
 }
