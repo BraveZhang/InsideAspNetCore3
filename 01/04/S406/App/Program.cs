@@ -10,7 +10,7 @@ namespace App
             var root = new ServiceCollection()
                 .AddSingleton<IFoo, Foo>()
                 .AddScoped<IBar, Bar>()
-                .BuildServiceProvider(true);
+                .BuildServiceProvider(true);// 服务验证
             var child = root.CreateScope().ServiceProvider;
 
             void ResolveService<T>(IServiceProvider provider)
@@ -32,6 +32,7 @@ namespace App
             ResolveService<IBar>(root);
             ResolveService<IFoo>(child);
             ResolveService<IBar>(child);
+            Console.ReadLine();
         }
     }
 
