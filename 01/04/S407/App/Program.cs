@@ -3,13 +3,16 @@ using System;
 
 namespace App
 {
+    /// <summary>
+    /// S407
+    /// </summary>
     class Program
     {
         static void Main()
         {
 
-            BuildServiceProvider(false);
-            BuildServiceProvider(true);
+            BuildServiceProvider(false);// 不开启服务验证
+            BuildServiceProvider(true);// 开启服务验证
 
             static void BuildServiceProvider(bool validateOnBuild)
             {
@@ -30,6 +33,8 @@ namespace App
                     Console.WriteLine($"Error: {ex.Message}");
                 }
             }
+
+            Console.ReadLine();
         }
     }
 }
