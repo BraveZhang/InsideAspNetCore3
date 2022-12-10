@@ -14,6 +14,8 @@ namespace App
                 .AddTransient<IQux, Qux>()
                 .BuildServiceProvider()
                 .GetServices<IQux>();
+
+            Console.ReadLine();
         }
     }
 }
