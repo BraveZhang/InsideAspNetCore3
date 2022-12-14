@@ -18,31 +18,31 @@ namespace App
 
             var engine = GetEngine(root);
             var rootScope = GetRootScope(engine, engineType);
-            Debug.Assert(ReferenceEquals(root.GetRequiredService<IServiceProvider>(), rootScope));
-            Debug.Assert(ReferenceEquals(root.GetRequiredService<IServiceScopeFactory>(), engine));
-            Debug.Assert(ReferenceEquals(GetEngine(rootScope, engineScopeType), engine));
+            Console.WriteLine(ReferenceEquals(root.GetRequiredService<IServiceProvider>(), rootScope));
+            Console.WriteLine(ReferenceEquals(root.GetRequiredService<IServiceScopeFactory>(), engine));
+            Console.WriteLine(ReferenceEquals(GetEngine(rootScope, engineScopeType), engine));
 
 
             //2           
-            Debug.Assert(ReferenceEquals(child1.GetRequiredService<IServiceScopeFactory>(), engine));
-            Debug.Assert(ReferenceEquals(child2.GetRequiredService<IServiceScopeFactory>(), engine));
-            Debug.Assert(ReferenceEquals(grandchild.GetRequiredService<IServiceScopeFactory>(), engine));
+            Console.WriteLine(ReferenceEquals(child1.GetRequiredService<IServiceScopeFactory>(), engine));
+            Console.WriteLine(ReferenceEquals(child2.GetRequiredService<IServiceScopeFactory>(), engine));
+            Console.WriteLine(ReferenceEquals(grandchild.GetRequiredService<IServiceScopeFactory>(), engine));
 
             //3
-            Debug.Assert(ReferenceEquals(GetEngine(child1, engineScopeType), engine));
-            Debug.Assert(ReferenceEquals(GetEngine(child2, engineScopeType), engine));
-            Debug.Assert(ReferenceEquals(GetEngine(grandchild, engineScopeType), engine));
+            Console.WriteLine(ReferenceEquals(GetEngine(child1, engineScopeType), engine));
+            Console.WriteLine(ReferenceEquals(GetEngine(child2, engineScopeType), engine));
+            Console.WriteLine(ReferenceEquals(GetEngine(grandchild, engineScopeType), engine));
 
             //4
-            Debug.Assert(ReferenceEquals(child1.GetRequiredService<IServiceProvider>(), child1));
-            Debug.Assert(ReferenceEquals(child2.GetRequiredService<IServiceProvider>(), child2));
-            Debug.Assert(ReferenceEquals(grandchild.GetRequiredService<IServiceProvider>(), grandchild));
+            Console.WriteLine(ReferenceEquals(child1.GetRequiredService<IServiceProvider>(), child1));
+            Console.WriteLine(ReferenceEquals(child2.GetRequiredService<IServiceProvider>(), child2));
+            Console.WriteLine(ReferenceEquals(grandchild.GetRequiredService<IServiceProvider>(), grandchild));
 
-            Debug.Assert(ReferenceEquals(((IServiceScope)child1).ServiceProvider, child1));
-            Debug.Assert(ReferenceEquals(((IServiceScope)child2).ServiceProvider, child2));
-            Debug.Assert(ReferenceEquals(((IServiceScope)grandchild).ServiceProvider, grandchild));
+            Console.WriteLine(ReferenceEquals(((IServiceScope)child1).ServiceProvider, child1));
+            Console.WriteLine(ReferenceEquals(((IServiceScope)child2).ServiceProvider, child2));
+            Console.WriteLine(ReferenceEquals(((IServiceScope)grandchild).ServiceProvider, grandchild));
 
-
+            Console.ReadLine();
         }
 
         static (Type Engine, Type EngineScope) ResolveTypes()
