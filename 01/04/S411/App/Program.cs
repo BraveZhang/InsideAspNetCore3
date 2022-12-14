@@ -21,9 +21,11 @@ class Program
             var singletonService = child.GetRequiredService<SingletonService>();
             var scopedService = child.GetRequiredService<ScopedService>();
 
-            Debug.Assert(ReferenceEquals(child, child.GetRequiredService<IServiceProvider>()));
-            Debug.Assert(ReferenceEquals(child, scopedService.RequestServices));
-            Debug.Assert(ReferenceEquals(rootScope, singletonService.ApplicationServices));
+            Console.WriteLine(ReferenceEquals(child, child.GetRequiredService<IServiceProvider>()));
+            Console.WriteLine(ReferenceEquals(child, scopedService.RequestServices));
+            Console.WriteLine(ReferenceEquals(rootScope, singletonService.ApplicationServices));
+
+            Console.ReadLine();
         }
     }            
 
