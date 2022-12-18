@@ -18,7 +18,9 @@ namespace App
                 .GetService<IFileManager>()
                 .ReadAllTextAsync("data.txt");
 
-            Debug.Assert(content == File.ReadAllText(@"c:\test\data.txt"));
+            Console.WriteLine(content == File.ReadAllText(@"c:\test\data.txt"));
+
+            Console.ReadLine();
         }
     }
 }
