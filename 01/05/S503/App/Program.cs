@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
@@ -25,7 +26,11 @@ namespace App
             stream.Read(buffer, 0, buffer.Length);
             var content2 = Encoding.Default.GetString(buffer);
 
-            Debug.Assert(content1 == content2);
+            //Debug.Assert(content1 == content2);
+
+            Console.WriteLine(content1 == content2);
+
+            Console.ReadLine();
         }
     }
 }
