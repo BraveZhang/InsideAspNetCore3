@@ -7,34 +7,35 @@ using System.Threading.Tasks;
 
 namespace App
 {
-class Program
-{
-    static async Task Main()
+    class Program
     {
-        using (var fileProvider = new PhysicalFileProvider(@"c:\test"))
+        static async Task Main()
         {
-            string original = null;
-            ChangeToken.OnChange(() => fileProvider.Watch("data.txt"), Callback);
-            while (true)
+            using (var fileProvider = new PhysicalFileProvider(@"c:\test"))
             {
-                File.WriteAllText(@"c:\test\data.txt", DateTime.Now.ToString());
-                await Task.Delay(5000);
-            }
-
-            async void Callback()
-            {
-                var stream = fileProvider.GetFileInfo("data.txt").CreateReadStream();
+                string original = null;
+                ChangeToken.OnChange(() => fileProvider.Watch("data.txt"), Callback);
+                // 定时往文件中写入时间内容           
+                while (true)
                 {
-                    var buffer = new byte[stream.Length];
-                    await stream.ReadAsync(buffer, 0, buffer.Length);
-                    string current = Encoding.Default.GetString(buffer);
-                    if (current != original)
+                    File.WriteAllText(@"c:\test\data.txt", DateTime.Now.ToString());
+                    await Task.Delay(5000);
+                }
+
+                async void Callback()
+                {
+                    var stream = fileProvider.GetFileInfo("data.txt").CreateReadStream();
                     {
-                        Console.WriteLine(original = current);
+                        var buffer = new byte[stream.Length];
+                        await stream.ReadAsync(buffer, 0, buffer.Length);
+                        string current = Encoding.Default.GetString(buffer);
+                        if (current != original)
+                        {
+                            Console.WriteLine(original = current);
+                        }
                     }
                 }
             }
         }
     }
-}
 }
