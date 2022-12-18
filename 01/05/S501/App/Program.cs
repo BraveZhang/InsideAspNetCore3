@@ -15,6 +15,8 @@ namespace App
                 .BuildServiceProvider()
                 .GetRequiredService<IFileManager>()
                 .ShowStructure(Print);
+
+            Console.ReadLine();
         }
     }
 
