@@ -41,6 +41,8 @@ namespace App
                     Console.WriteLine("\nService scope is disposed.");
                 }
             }
+
+            Console.ReadLine();
         }
     }
 }
