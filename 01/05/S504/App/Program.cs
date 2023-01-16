@@ -33,9 +33,12 @@ namespace App
                         {
                             Console.WriteLine(original = current);
                         }
+                        Console.ReadLine();
                     }
                 }
             }
+
+
         }
     }
 }
