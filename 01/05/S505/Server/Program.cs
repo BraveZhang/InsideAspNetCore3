@@ -5,16 +5,16 @@ using Microsoft.Extensions.Hosting;
 
 namespace Server
 {
-public class Program
-{
-    public static void Main()
+    public class Program
     {
-        Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(builder => builder.Configure(app=>app
-                .UsePathBase("/files")
-                .UseMiddleware<FileProviderMiddleware>(@"c:\test")))
-                .Build()
-                .Run();
+        public static void Main()
+        {
+            Host.CreateDefaultBuilder()
+                    .ConfigureWebHostDefaults(builder => builder.Configure(app => app
+                    .UsePathBase("/files")
+                    .UseMiddleware<FileProviderMiddleware>(@"c:\test")))
+                    .Build()
+                    .Run();
+        }
     }
-}
 }

@@ -9,13 +9,15 @@ class Program
 {
     static void Main()
     {
-        var baseAddress = "http://localhost:5000/files/dir1";
+        var baseAddress = "http://localhost:5000/files/";
         var fileManager = new ServiceCollection()
                 .AddSingleton<IFileProvider>(new HttpFileProvider(baseAddress))
                 .AddSingleton<IFileManager, FileManager>()
                 .BuildServiceProvider()
                 .GetService<IFileManager>();
         fileManager.ShowStructure((layer, name)=> Console.WriteLine($"{new string('\t', layer)}{name}"));
+
+        Console.ReadLine();
     }
 }
 }
