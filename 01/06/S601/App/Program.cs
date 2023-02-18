@@ -26,6 +26,8 @@ namespace App
             Console.WriteLine($"LongTimePattern: {options.LongTimePattern}");
             Console.WriteLine($"ShortDatePattern: {options.ShortDatePattern}");
             Console.WriteLine($"ShortTimePattern: {options.ShortTimePattern}");
+
+            Console.ReadLine();
         }
     }
 }
