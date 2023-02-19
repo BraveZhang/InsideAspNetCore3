@@ -38,6 +38,8 @@ namespace App
             Console.WriteLine("CurrencyDecimal:");
             Console.WriteLine($"\tDigits:{currencyDecimal.Digits}");
             Console.WriteLine($"\tSymbol:{currencyDecimal.Symbol}");
+
+            Console.ReadLine();
         }
     }
 }
