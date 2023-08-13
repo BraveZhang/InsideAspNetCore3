@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -21,7 +22,9 @@ namespace App
                 .Build();
 
             var profile = configuration.Get<Profile>();
-            Debug.Assert(profile.Equals(new Profile(Gender.Male, 18, "foobar@outlook.com", "123456789")));
+            //Debug.Assert(profile.Equals(new Profile(Gender.Male, 18, "foobar@outlook.com", "123456789")));
+            Console.WriteLine(profile.Equals(new Profile(Gender.Male, 18, "foobar@outlook.com", "123456789")));
+            Console.ReadKey();
         }
     }
 
