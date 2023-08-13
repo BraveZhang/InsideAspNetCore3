@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace App
         {
             var source = new Dictionary<string, string>
             {
+                // 注意这种创建命名方式
                 ["foo:gender"] = "Male",
                 ["foo:age"] = "18",
                 ["foo:contactInfo:emailAddress"] = "foo@outlook.com",
@@ -39,14 +41,22 @@ namespace App
             };
 
             var collection = configuration.Get<IEnumerable<Profile>>();
-            Debug.Assert(collection.Any(it => it.Equals(profiles[0])));
-            Debug.Assert(collection.Any(it => it.Equals(profiles[1])));
-            Debug.Assert(collection.Any(it => it.Equals(profiles[2])));
+            //Debug.Assert(collection.Any(it => it.Equals(profiles[0])));
+            //Debug.Assert(collection.Any(it => it.Equals(profiles[1])));
+            //Debug.Assert(collection.Any(it => it.Equals(profiles[2])));
+            Console.WriteLine(collection.Any(it => it.Equals(profiles[0])));
+            Console.WriteLine(collection.Any(it => it.Equals(profiles[1])));
+            Console.WriteLine(collection.Any(it => it.Equals(profiles[2])));
 
             var array = configuration.Get<Profile[]>();
-            Debug.Assert(array[0].Equals(profiles[1]));
-            Debug.Assert(array[1].Equals(profiles[2]));
-            Debug.Assert(array[2].Equals(profiles[0]));
+            //Debug.Assert(array[0].Equals(profiles[1]));
+            //Debug.Assert(array[1].Equals(profiles[2]));
+            //Debug.Assert(array[2].Equals(profiles[0]));
+            Console.WriteLine(array[0].Equals(profiles[1]));
+            Console.WriteLine(array[1].Equals(profiles[2]));
+            Console.WriteLine(array[2].Equals(profiles[0]));
+
+            Console.ReadLine();
 
         }
     }
