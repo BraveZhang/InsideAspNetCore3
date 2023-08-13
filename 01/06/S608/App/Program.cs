@@ -4,22 +4,22 @@ using System.Diagnostics;
 
 namespace App
 {
-public class Program
-{
-    public static void Main()
+    public class Program
     {
-        var source = new Dictionary<string, string>
+        public static void Main()
         {
-            ["point"] = "(123,456)"
-        };
+            var source = new Dictionary<string, string>
+            {
+                ["point"] = "(123,456)"
+            };
 
-        var root = new ConfigurationBuilder()
-            .AddInMemoryCollection(source)
-            .Build();
+            var root = new ConfigurationBuilder()
+                .AddInMemoryCollection(source)
+                .Build();
 
-        var point = root.GetValue<Point>("point");
-        Debug.Assert(point.X == 123);
-        Debug.Assert(point.Y == 456);
+            var point = root.GetValue<Point>("point");
+            Debug.Assert(point.X == 123);
+            Debug.Assert(point.Y == 456);
+        }
     }
-}
 }
