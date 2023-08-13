@@ -29,6 +29,8 @@ namespace App
                 Console.WriteLine($"\tSymbol:{currencyDecimal.Symbol}\n\n");
             });
             Console.Read();
+
+            // 为何会执行2次
         }
     }
 
