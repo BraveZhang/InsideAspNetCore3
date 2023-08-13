@@ -37,7 +37,7 @@ namespace App
             var array = configuration.Get<Profile[]>();
             Debug.Assert(array.Length == 3);
             Debug.Assert(array[2] == null);
-            //由于配置节按照Key进行排序，绑定失败的配置节为最后一个
+            // 由于配置节按照Key进行排序，绑定失败的配置节为最后一个
         }
     }
 
