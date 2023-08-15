@@ -37,6 +37,7 @@ namespace App
             {
                 dbContext.Settings.Add(new ApplicationSetting(item.Key, item.Value));
             }
+            dbContext.SaveChanges();
             return _initialSettings.ToDictionary(it => it.Key, it => it.Value, StringComparer.OrdinalIgnoreCase);
         }
     }
