@@ -18,7 +18,7 @@ namespace App
                 .Configure<Profile>(configuration)
                 .BuildServiceProvider()
                 .GetRequiredService<IOptionsMonitor<Profile>>()
-                .OnChange(profile =>
+                .OnChange(profile =>// 执行2次?
                 {
                     Console.WriteLine($"Gender: {profile.Gender}");
                     Console.WriteLine($"Age: {profile.Age}");
