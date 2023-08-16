@@ -18,7 +18,7 @@ namespace App
                 .Configure<Profile>("bar", configuration.GetSection("bar"))
                 .BuildServiceProvider()
                 .GetRequiredService<IOptionsMonitor<Profile>>()
-                .OnChange((profile, name) =>
+                .OnChange((profile, name) =>// name
                 {
                     Console.WriteLine($"Name: {name}");
                     Console.WriteLine($"Gender: {profile.Gender}");
