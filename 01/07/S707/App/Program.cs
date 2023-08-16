@@ -7,36 +7,37 @@ using System;
 
 namespace App
 {
-class Program
-{
-    public static void Main(string[] args)
+    class Program
     {
-        var environment = new ConfigurationBuilder()
-            .AddCommandLine(args)
-            .Build()["env"];
+        public static void Main(string[] args)
+        {
+            var environment = new ConfigurationBuilder()
+                .AddCommandLine(args)
+                .Build()["env"];
 
-        var services = new ServiceCollection();
-        services
-            .AddSingleton<IHostEnvironment>(new HostingEnvironment { EnvironmentName = environment })
-            .AddOptions<DateTimeFormatOptions>().Configure<IHostEnvironment>(
-        (options, env) => {
-            if (env.IsDevelopment())
+            var services = new ServiceCollection();
+            services
+                .AddSingleton<IHostEnvironment>(new HostingEnvironment { EnvironmentName = environment })
+                .AddOptions<DateTimeFormatOptions>().Configure<IHostEnvironment>(// AddOptions<DateTimeFormatOptions>()自定义
+            (options, env) =>
             {
-                options.DatePattern = "dddd, MMMM d, yyyy";
-                options.TimePattern = "M/d/yyyy";
-            }
-                
-            else
-            {
-                options.DatePattern = "M/d/yyyy";
-                options.TimePattern = "h:mm tt";
-            }
-        });
+                if (env.IsDevelopment())
+                {
+                    options.DatePattern = "dddd, MMMM d, yyyy";
+                    options.TimePattern = "M/d/yyyy";
+                }
 
-        var options = services
-            .BuildServiceProvider()
-            .GetRequiredService<IOptions<DateTimeFormatOptions>>().Value;
-        Console.WriteLine(options);
+                else
+                {
+                    options.DatePattern = "M/d/yyyy";
+                    options.TimePattern = "h:mm tt";
+                }
+            });
+
+            var options = services
+                .BuildServiceProvider()
+                .GetRequiredService<IOptions<DateTimeFormatOptions>>().Value;
+            Console.WriteLine(options);
+        }
     }
-}
 }
