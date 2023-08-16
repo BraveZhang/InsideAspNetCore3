@@ -15,13 +15,13 @@ namespace App
 
             var serviceProvider = new ServiceCollection()
                 .AddOptions()
-                .Configure<Profile>("foo", configuration.GetSection("foo"))
-                .Configure<Profile>("bar", configuration.GetSection("bar"))
+                .Configure<Profile>("foo", configuration.GetSection("foo"))// 传入name
+                .Configure<Profile>("bar", configuration.GetSection("bar"))// 传入name
                 .BuildServiceProvider();
 
             var optionsAccessor = serviceProvider
-                .GetRequiredService<IOptionsSnapshot<Profile>>();
-            Print(optionsAccessor.Get("foo"));
+                .GetRequiredService<IOptionsSnapshot<Profile>>();// IOptionsSnapshot
+            Print(optionsAccessor.Get("foo"));// Get
             Print(optionsAccessor.Get("bar"));
 
             static void Print(Profile profile)
