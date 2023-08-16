@@ -11,7 +11,7 @@ namespace App
         {
             var optionsAccessor = new ServiceCollection()
                 .AddOptions()
-                .Configure<Profile>("foo", it =>
+                .Configure<Profile>("foo", it =>// 传入带有name参数的委托
                 {
                     it.Gender = Gender.Male;
                     it.Age = 18;
@@ -32,7 +32,7 @@ namespace App
                     };
                 })
                 .BuildServiceProvider()
-                .GetRequiredService<IOptionsSnapshot<Profile>>();
+                .GetRequiredService<IOptionsSnapshot<Profile>>();// IOptionsSnapshot
 
             Print(optionsAccessor.Get("foo"));
             Print(optionsAccessor.Get("bar"));
