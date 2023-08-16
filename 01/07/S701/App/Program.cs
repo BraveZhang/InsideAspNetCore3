@@ -13,8 +13,8 @@ namespace App
                 .AddJsonFile("profile.json")
                 .Build();
             var profile = new ServiceCollection()
-                .AddOptions()
-                .Configure<Profile>(configuration)
+                .AddOptions()//
+                .Configure<Profile>(configuration)//
                 .BuildServiceProvider()
                 .GetRequiredService<IOptions<Profile>>()
                 .Value;
@@ -22,6 +22,8 @@ namespace App
             Console.WriteLine($"Age: {profile.Age}");
             Console.WriteLine($"Email Address: {profile.ContactInfo.EmailAddress}");
             Console.WriteLine($"Phone No: {profile.ContactInfo.PhoneNo}");
+
+            Console.ReadLine();
         }
     }
 
