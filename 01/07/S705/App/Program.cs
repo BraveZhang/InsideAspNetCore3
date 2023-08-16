@@ -11,7 +11,7 @@ namespace App
         {
             var profile = new ServiceCollection()
                 .AddOptions()
-                .Configure<Profile>(it =>
+                .Configure<Profile>(it =>// 直接传入委托
                 {
                     it.Gender = Gender.Male;
                     it.Age = 18;
