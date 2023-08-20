@@ -37,6 +37,8 @@ namespace App
             Debug.Assert(options.Dictionary["1"].Equals(foobar1));
             Debug.Assert(options.Dictionary["2"].Equals(foobar2));
             Debug.Assert(options.Dictionary["3"].Equals(foobar3));
+
+            Console.ReadKey();
         }
     }
 
