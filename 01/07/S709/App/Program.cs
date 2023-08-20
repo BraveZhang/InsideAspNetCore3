@@ -44,7 +44,10 @@ namespace App
                 Console.WriteLine($"options:{options}");
                 Console.WriteLine($"optionsSnapshot1:{optionsSnapshot1}");
                 Console.WriteLine($"optionsSnapshot2:{optionsSnapshot2}\n");
+
             }
+
+            Console.ReadKey();
         }
     }
 }
