@@ -3,6 +3,9 @@ using System.Diagnostics.Tracing;
 
 namespace App
 {
+    /// <summary>
+    /// 自定义事件源
+    /// </summary>
     public sealed class DatabaseSource : EventSource
     {
         public static readonly DatabaseSource Instance = new DatabaseSource();
