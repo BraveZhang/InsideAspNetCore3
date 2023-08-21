@@ -6,7 +6,7 @@ namespace App
     {
         static void Main()
         {
-            var listener = new DatabaseSourceListener();
+            _ = new DatabaseSourceListener();// 这里不需要显式注册
             DatabaseSource.Instance.OnCommandExecute(CommandType.Text, "SELECT * FROM T_USER");
         }
     }
