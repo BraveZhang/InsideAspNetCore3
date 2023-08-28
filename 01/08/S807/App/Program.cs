@@ -12,12 +12,12 @@ namespace App
             DiagnosticListener.AllListeners.Subscribe(new Observer<DiagnosticListener>(listener => {
                     if (listener.Name == "Artech-Data-SqlClient")
                     {
-                        listener.SubscribeWithAdapter(new DatabaseSourceCollector());
-                    }
+                        listener.SubscribeWithAdapter(new DatabaseSourceCollector());// DatabaseSourceCollector
+                }
                 }));
 
             var source = new DiagnosticListener("Artech-Data-SqlClient");
-            source.Write("CommandExecution",new { CommandType = CommandType.Text, CommandText = "SELECT * FROM T_USER" });
+            source.Write("CommandExecution",new { CommandType = CommandType.Text, CommandText = "SELECT * FROM T_USER" });// name要和DatabaseSourceCollector中定义的一致
         }
     }
 }
