@@ -27,6 +27,8 @@ namespace App
                 }
                 source.Flush();
             }
+
+            Console.ReadLine();
         }
     }
 }
