@@ -12,7 +12,7 @@ namespace App
         public static DatabaseSource Instance = new DatabaseSource();
         private DatabaseSource() { }
 
-        [Event(1, Level = EventLevel.Informational, Keywords = EventKeywords.None,Opcode = EventOpcode.Info, Task = Tasks.DA, Tags = Tags.MSSQL, Version = 1,
+        [Event(1, Level = EventLevel.Informational, Keywords = EventKeywords.None, Opcode = EventOpcode.Info, Task = Tasks.DA, Tags = Tags.MSSQL, Version = 1,
             Message = "Execute SQL command. Type: {0}, Command Text: {1}")]
         public void OnCommandExecute(CommandType commandType, string commandText)
         {
