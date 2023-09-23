@@ -15,7 +15,7 @@ public class PerformanceCounterListener: EventListener
         base.OnEventSourceCreated(eventSource);
         if (eventSource.Name == "System.Runtime")
         {
-            EnableEvents(eventSource, EventLevel.Critical, (EventKeywords)(-1), new Dictionary<string, string> { ["EventCounterIntervalSec"] = "5" });
+            EnableEvents(eventSource, EventLevel.Critical, (EventKeywords)(-1), new Dictionary<string, string> { ["EventCounterIntervalSec"] = "5" });// 每隔5s
         }
     }
 
