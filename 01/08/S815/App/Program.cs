@@ -14,7 +14,7 @@ namespace App
             {
                 if (listener.Name == "Web")
                 {
-                    listener.SubscribeWithAdapter(new DiagnosticCollector());
+                    listener.SubscribeWithAdapter(new DiagnosticCollector());// 强类型SubscribeWithAdapter事件订阅
                 }
             });
 
