@@ -33,8 +33,8 @@ namespace App
                     : "";
                 var relatedActivityId = eventData.RelatedActivityId == default
                     ? ""
-                    : eventData.RelatedActivityId.ToString();
-                var line = $"{eventData.EventName},{timestamp},{elapsed},{ eventData.ActivityId},{ relatedActivityId}";
+                    : eventData.RelatedActivityId.ToString();// 能够获取到活动ID，skywalking是否是使用该原理？
+                var line = $"{eventData.EventName},{timestamp},{elapsed},{eventData.ActivityId},{relatedActivityId}";
                 File.AppendAllLines("log.csv", new string[] { line });
             }
         }

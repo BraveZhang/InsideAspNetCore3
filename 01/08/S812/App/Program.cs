@@ -29,7 +29,7 @@ namespace App
         static Task GuxAsync() => InvokeAsync(FoobarSource.Instance.GuxStart,
             FoobarSource.Instance.GuxStop, () => Task.CompletedTask);
 
-        static async Task InvokeAsync(Action<long> start, Action<double> stop, Func<Task> body)
+        static async Task InvokeAsync(Action<long> start, Action<double> stop, Func<Task> body)// 注意传入FoobarSource中定义的方法委托
         {
             start(Stopwatch.GetTimestamp());
             var sw = Stopwatch.StartNew();
