@@ -13,19 +13,21 @@ namespace App
             var listener = new FoobarListener();
             listener.EnableEvents(FoobarSource.Instance, EventLevel.LogAlways);
             listener.EventWritten += (sender, args) => {
+                // 针对EventPayload进行解析
                 string ToString(object foobar)
                 {
                     var dictionary = (IDictionary<string, object>)foobar;
                     return $"(Foo={dictionary["Foo"]}, Bar={dictionary["Bar"]})";
                 }
+
                 var eventData = (IDictionary<string, object>)args.Payload.Single();
-                Console.WriteLine($"Foobar: {ToString(eventData["Foobar"])}");
+                Console.WriteLine($"Foobar: {ToString(eventData["Foobar"])}");// EventPayload
 
                 var array = (object[])eventData["Collection"];
                 Console.WriteLine("Collection:");
                 for (int index = 0; index < array.Length; index++)
                 {
-                    Console.WriteLine($"\t[{index}]: {ToString(array[index])}");
+                    Console.WriteLine($"\t[{index}]: {ToString(array[index])}");// EventPayload
                 }
 
                 Console.WriteLine("Dictionary:");
@@ -33,7 +35,7 @@ namespace App
                 foreach (IDictionary<string, object> eventPayload in array)
                 {
                     var key = eventPayload["Key"];
-                    Console.WriteLine($"\tKey: {key}: Value: {ToString(eventPayload["Value"])}");
+                    Console.WriteLine($"\tKey: {key}: Value: {ToString(eventPayload["Value"])}");// EventPayload
                 }
             };
 
