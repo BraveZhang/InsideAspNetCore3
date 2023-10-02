@@ -15,7 +15,7 @@ namespace App
                     .AddConsole()
                     .AddDebug())
                 .BuildServiceProvider()
-                .GetRequiredService<ILogger<Program>>();
+                .GetRequiredService<ILogger<Program>>();// 简化版本，直接注入ILogger并获取
 
             var levels = (LogLevel[])Enum.GetValues(typeof(LogLevel));
             levels = levels.Where(it => it != LogLevel.None).ToArray();
