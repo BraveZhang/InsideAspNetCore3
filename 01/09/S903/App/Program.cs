@@ -12,14 +12,14 @@ namespace App
         public static void Main()
         {
             var listener = new FoobarEventListener();
-            listener.EventSourceCreated += (sender, args) =>
+            listener.EventSourceCreated += (sender, args) =>// 注册EventSourceCreated事件
             {
                 if (args.EventSource.Name == "Microsoft-Extensions-Logging")
                 {
                     listener.EnableEvents(args.EventSource, EventLevel.LogAlways);
                 }
             };
-            listener.EventWritten += (sender, args) =>
+            listener.EventWritten += (sender, args) =>// 注册EventWritten事件
             {
                 if (args.EventName == "FormattedMessage")
                 {
@@ -46,6 +46,10 @@ namespace App
             var eventId = 1;
             Array.ForEach(levels, level => logger.Log(level, eventId++, "This is a/an {level} log message.", level));
         }
+
+        /// <summary>
+        /// 自定义EventListener
+        /// </summary>
         public class FoobarEventListener : EventListener { }
     }
 }
