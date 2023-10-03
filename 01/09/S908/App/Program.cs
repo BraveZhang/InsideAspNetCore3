@@ -13,7 +13,7 @@ namespace App
         {
             var logger = new ServiceCollection()
                 .AddLogging(builder => builder
-                    .AddConsole(options => options.IncludeScopes = true))
+                .AddConsole(options => options.IncludeScopes = true))// 配置日志范围IncludeScopes
                     .BuildServiceProvider()
                 .GetRequiredService<ILogger<Program>>();
 
