@@ -12,7 +12,7 @@ namespace App
         public static void Main()
         {
             var logger = new ServiceCollection().AddLogging(builder => builder
-                    .SetMinimumLevel(LogLevel.Trace)
+                    .SetMinimumLevel(LogLevel.Trace)// SetMinimumLevel
                     .AddConsole())
                 .BuildServiceProvider()
                 .GetRequiredService<ILoggerFactory>()
