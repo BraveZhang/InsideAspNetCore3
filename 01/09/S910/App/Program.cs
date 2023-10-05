@@ -14,7 +14,7 @@ namespace App
             var logger = new ServiceCollection()
                     .AddLogging(builder => builder
                     .SetMinimumLevel(LogLevel.Trace)
-                    .AddConsole(options => options.IncludeScopes = true))
+                    .AddConsole(options => options.IncludeScopes = true))// IncludeScopes
                 .BuildServiceProvider()
                 .GetRequiredService<ILogger<Program>>();
 
