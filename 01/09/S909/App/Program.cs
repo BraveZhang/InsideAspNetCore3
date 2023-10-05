@@ -21,16 +21,22 @@ namespace App
                 "\n\t\tArguments: foo={foo}, bar={bar}" +
                 "\n\t\tReturn value: {returnValue}" +
                 "\n\t\tTime:{time}";
+
+            // 方法定义如下：
+            // public static Action<ILogger, T1, T2, T3, T4, Exception> Define<T1, T2, T3, T4>(LogLevel logLevel, EventId eventId, string formatString);
             _log = LoggerMessage.Define
                 <int, long, double, TimeSpan>(LogLevel.Trace, 3721, _template);
+
             _logger = new ServiceCollection()
                 .AddLogging(builder => builder
                     .SetMinimumLevel(LogLevel.Trace)
                     .AddConsole())
                 .BuildServiceProvider()
                 .GetRequiredService<ILogger<Program>>();
+
             await FoobarAsync(_random.Next(), _random.Next());
             await FoobarAsync(_random.Next(), _random.Next());
+
             Console.Read();
         }
 
