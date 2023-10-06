@@ -14,6 +14,7 @@ namespace App
             Log<Foo>();
             Log<Foo.Bar>();
             Log<Baz<Foo>>();
+
             Console.Read();
 
             static void Log<T>()
@@ -22,7 +23,8 @@ namespace App
                   .AddLogging(builder => builder.AddConsole())
                   .BuildServiceProvider()
                   .GetRequiredService<ILogger<T>>()
-                  .LogInformation($"{typeof(T).FullName}");
+                  //.LogInformation($"{typeof(T).FullName}");
+                  .LogInformation(new Random().Next(1,100),$"{typeof(T).FullName}");
                 Task.Delay(1).Wait();
             }
         }
