@@ -14,13 +14,13 @@ namespace App
                 .BuildServiceProvider()
                 .GetRequiredService<ILogger<Program>>();
 
-            using (logger.BeginScope("Foo"))
+            using (logger.BeginScope("Foo"))// 有层级的调用链
             {
                 logger.Log(LogLevel.Information, "This is a log written in scope Foo.");
-                using (logger.BeginScope("Bar"))
+                using (logger.BeginScope("Bar"))// 有层级的调用链
                 {
                     logger.Log(LogLevel.Information, "This is a log written in scope Bar.");
-                    using (logger.BeginScope("Baz"))
+                    using (logger.BeginScope("Baz"))// 有层级的调用链
                     {
                         logger.Log(LogLevel.Information, "This is a log written in scope Baz.");
                     }
