@@ -12,11 +12,13 @@ namespace App
         {
             File.AppendAllLines("log.csv", new string[] { $"EventName, Payload, ActivityId, RelatedActivityId" });
             _ = new LoggingEventListener();
+
             var logger = new ServiceCollection()
                 .AddLogging(builder => builder.AddEventSourceLogger())
                 .BuildServiceProvider()
                 .GetRequiredService<ILogger<Program>>();
 
+            // 注意调用链先后顺序
             using (logger.BeginScope(new Dictionary<string, object> { ["Operation"] = "Foo" }))
             {
                 logger.LogInformation("This is a test log written in scope 'Foo'");
@@ -24,7 +26,7 @@ namespace App
                 {
                     logger.LogInformation("This is a test log written in scope 'Bar'");
                 }
-                using (logger.BeginScope(new Dictionary<string, object>{ ["Operation"] = "Baz" }))
+                using (logger.BeginScope(new Dictionary<string, object> { ["Operation"] = "Baz" }))
                 {
                     logger.LogInformation("This is a test log written in scope 'Baz'");
                 }
