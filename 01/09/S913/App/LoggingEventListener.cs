@@ -9,7 +9,7 @@ namespace App
     {
         protected override void OnEventSourceCreated(EventSource eventSource)
         {
-            if (eventSource.Name == "Microsoft-Extensions-Logging")
+            if (eventSource.Name == "Microsoft-Extensions-Logging")// Microsoft-Extensions-Logging
             {
                 EnableEvents(eventSource, EventLevel.LogAlways);
             }

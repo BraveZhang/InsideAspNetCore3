@@ -11,7 +11,7 @@ namespace App
         {
             _ = new LoggingEventListener();
             var logger = new ServiceCollection()
-                .AddLogging(builder => builder.AddEventSourceLogger())
+                .AddLogging(builder => builder.AddEventSourceLogger())// AddEventSourceLogger
                 .BuildServiceProvider()
                 .GetRequiredService<ILogger<Program>>();
 
