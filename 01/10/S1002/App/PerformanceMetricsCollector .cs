@@ -15,6 +15,13 @@ namespace App
         private readonly IMetricsDeliverer _MetricsDeliverer;
         private IDisposable _scheduler;
 
+        /// <summary>
+        /// 构造函数（采用构造函数注入的方式）
+        /// </summary>
+        /// <param name="processorMetricsCollector"></param>
+        /// <param name="memoryMetricsCollector"></param>
+        /// <param name="networkMetricsCollector"></param>
+        /// <param name="MetricsDeliverer"></param>
         public PerformanceMetricsCollector(
             IProcessorMetricsCollector processorMetricsCollector,
             IMemoryMetricsCollector memoryMetricsCollector,
@@ -34,12 +41,14 @@ namespace App
 
             async void Callback(object state)
             {
+                // 和S1001相比，进行了服务功能的拆分，同时进行了接口化抽象
                 var counter = new PerformanceMetrics
                 {
                     Processor = _processorMetricsCollector.GetUsage(),
                     Memory = _memoryMetricsCollector.GetUsage(),
                     Network = _networkMetricsCollector.GetThroughput()
                 };
+                // 和S1001相比，不直接输出，而是将输出的操作也接口化独立出来
                 await _MetricsDeliverer.DeliverAsync(counter);
             }
         }
