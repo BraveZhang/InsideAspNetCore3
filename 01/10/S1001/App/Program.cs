@@ -9,7 +9,12 @@ namespace App
         {
             new HostBuilder()
                 .ConfigureServices(svcs => svcs
-                    .AddHostedService<PerformanceMetricsCollector>())
+                    .AddSingleton<IHostedService, PerformanceMetricsCollector>()
+
+                    // 有两种方式
+                    //.AddSingleton<IHostedService,PerformanceMetricsCollector>()
+                    //.AddHostedService<PerformanceMetricsCollector>()
+                    )
                 .Build()
                 .Run();
         }
