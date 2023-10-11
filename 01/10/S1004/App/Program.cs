@@ -10,12 +10,12 @@ namespace App
         {
             var collector = new FakeMetricsCollector();
             new HostBuilder()
-                .ConfigureHostConfiguration(builder => builder.AddCommandLine(args))
+                .ConfigureHostConfiguration(builder => builder.AddCommandLine(args))// 开启支持命令方式启动
                 .ConfigureAppConfiguration((context, builder) => builder
-                    .AddJsonFile(path: "appsettings.json", optional: false)
+                    .AddJsonFile(path: "appsettings.json", optional: false)// 默认，必须的
                     .AddJsonFile(
                         path: $"appsettings.{context.HostingEnvironment.EnvironmentName}.json",
-                        optional: true))
+                        optional: true))// 可选的
                 .ConfigureServices((context, svcs) => svcs
                     .AddSingleton<IProcessorMetricsCollector>(collector)
                     .AddSingleton<IMemoryMetricsCollector>(collector)
