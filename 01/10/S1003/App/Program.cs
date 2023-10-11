@@ -13,7 +13,7 @@ namespace App
             new HostBuilder()
                 .ConfigureHostConfiguration(builder => builder.AddCommandLine(args))
                 .ConfigureAppConfiguration((context, builder) => builder
-                    .AddJsonFile(path: "appsettings.json", optional: false)
+                    .AddJsonFile(path: "appsettings.json", optional: false)// Options模式下采用配置文件的方式
                     .AddJsonFile(
                         path: $"appsettings.{context.HostingEnvironment.EnvironmentName}.json",
                         optional: true))
@@ -24,10 +24,9 @@ namespace App
                     .AddSingleton<IMetricsDeliverer, FakeMetricsDeliverer>()
                     .AddSingleton<IHostedService, PerformanceMetricsCollector>()
 
-                    .AddOptions()
-                    .Configure<MetricsCollectionOptions>(
-                         context.Configuration.GetSection("MetricsCollection")))
-                 .ConfigureLogging(builder => builder.AddConsole())
+                    .AddOptions()// 注册Options模式所需的核心服务
+                    .Configure<MetricsCollectionOptions>(context.Configuration.GetSection("MetricsCollection")))// 从配置文件appsettings.json中提取配置信息和MetricsCollectionOptions绑定
+                 .ConfigureLogging(builder => builder.AddConsole())// 采用日志框架方式输出
                 .Build()
                 .Run();
         }

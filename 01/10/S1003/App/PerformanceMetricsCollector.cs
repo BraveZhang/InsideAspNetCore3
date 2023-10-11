@@ -20,7 +20,7 @@ namespace App
             IMemoryMetricsCollector memoryMetricsCollector,
             INetworkMetricsCollector networkMetricsCollector,
             IMetricsDeliverer MetricsDeliverer,
-            IOptions<MetricsCollectionOptions> optionsAccessor)
+            IOptions<MetricsCollectionOptions> optionsAccessor)// 注入了配置选项
         {
             _processorMetricsCollector = processorMetricsCollector;
             _memoryMetricsCollector = memoryMetricsCollector;
