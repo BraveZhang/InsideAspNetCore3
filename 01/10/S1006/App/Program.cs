@@ -27,8 +27,8 @@ namespace App
                     .AddOptions()
                     .Configure<MetricsCollectionOptions>(context.Configuration.GetSection("MetricsCollection")))
                  .ConfigureLogging((context, builder) => builder
-                    .AddConfiguration(context.Configuration.GetSection("Logging"))
-                    .AddConsole())
+                    .AddConfiguration(context.Configuration.GetSection("Logging"))// 过滤规则
+                    .AddConsole())// 控制台输出
                 .Build()
                 .Run();
         }
