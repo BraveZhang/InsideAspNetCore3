@@ -13,6 +13,7 @@ namespace App
         public FakeHostedService(IHostApplicationLifetime lifetime)
         {
             _lifetime = lifetime;
+            // 下列注册_lifetime应用各个状态输出方法
             _lifetime.ApplicationStarted.Register(() => Console.WriteLine("[{0}]Application started", DateTimeOffset.Now));
             _lifetime.ApplicationStopping.Register(() => Console.WriteLine("[{0}]Application is stopping.", DateTimeOffset.Now));
             _lifetime.ApplicationStopped.Register(() => Console.WriteLine("[{0}]Application stopped.", DateTimeOffset.Now));
@@ -20,7 +21,9 @@ namespace App
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(5)).Token.Register(_lifetime.StopApplication);
+            _tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(5))// 5s后调用_lifetime.StopApplication停止
+                .Token
+                .Register(_lifetime.StopApplication);
             return Task.CompletedTask;
         }
 
