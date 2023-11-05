@@ -12,7 +12,7 @@ namespace App
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("{0,-15}:{1}", nameof(_environment.EnvironmentName), _environment.EnvironmentName);
+            Console.WriteLine("{0,-15}:{1}", nameof(_environment.EnvironmentName), _environment.EnvironmentName);// 默认Production环境
             Console.WriteLine("{0,-15}:{1}", nameof(_environment.ApplicationName), _environment.ApplicationName);
             Console.WriteLine("{0,-15}:{1}", nameof(_environment.ContentRootPath), _environment.ContentRootPath);
             return Task.CompletedTask;
