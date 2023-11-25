@@ -11,7 +11,7 @@ namespace App
         {
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(builder => builder
                 .UseStartup<Startup>()
-                .ConfigureServices(svcs => svcs.AddSingleton<IFoo, Foo>()))
+                .ConfigureServices(svcs => svcs.AddSingleton<IFoo, Foo>()))// IFoo
             .Build()
             .Run();
         }
