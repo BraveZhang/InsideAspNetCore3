@@ -13,7 +13,7 @@ namespace App
             Debug.Assert(configuration != null);
             Debug.Assert(hostingEnvironment != null);
             Debug.Assert(webHostEnvironment != null);
-            Debug.Assert(ReferenceEquals(hostingEnvironment, webHostEnvironment));
+            Debug.Assert(ReferenceEquals(hostingEnvironment, webHostEnvironment));// 实例相同
         }
         public void Configure(IApplicationBuilder app) { }
     }
