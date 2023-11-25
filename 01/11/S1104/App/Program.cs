@@ -12,7 +12,7 @@ namespace App
         static void Main()
         {
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(builder => builder
-                .UseStartup<Startup>())
+                .UseStartup<Startup>())// 除了UseStartup方式，还有一种ConfigureServices方式
             .Build()
             .Run();
         }
