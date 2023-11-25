@@ -10,7 +10,7 @@ class Program
     static void Main()
     {
         Host.CreateDefaultBuilder().ConfigureWebHostDefaults(builder => builder
-            .ConfigureServices(svcs => svcs
+            .ConfigureServices(svcs => svcs // 注入
                 .AddSingleton<FoobarMiddleware>()
                 .AddSingleton<IFoo, Foo>()
                 .AddSingleton<IBar, Bar>())

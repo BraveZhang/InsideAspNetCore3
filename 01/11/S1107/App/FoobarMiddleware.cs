@@ -6,7 +6,7 @@ namespace App
 {
     public class FoobarMiddleware : IMiddleware
     {
-        public FoobarMiddleware(IFoo foo, IBar bar)
+        public FoobarMiddleware(IFoo foo, IBar bar)// 消费
         {
             Debug.Assert(foo != null);
             Debug.Assert(bar != null);
