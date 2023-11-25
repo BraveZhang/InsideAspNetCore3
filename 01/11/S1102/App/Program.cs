@@ -12,12 +12,15 @@ namespace App
         static void Main()
         {
             Host.CreateDefaultBuilder()
-                .ConfigureServices(svcs => svcs.AddSingleton(new StringContentMiddleware("Hello World!")))
+                .ConfigureServices(svcs => svcs.AddSingleton(new StringContentMiddleware("Hello World!")))// 注入
                 .ConfigureWebHostDefaults(builder => builder.Configure(app => app.UseMiddleware<StringContentMiddleware>()))
             .Build()
             .Run();
         }
 
+        /// <summary>
+        /// 使用IMiddleware接口实现强类型中间件定义
+        /// </summary>
         private sealed class StringContentMiddleware : IMiddleware
         {
             private readonly string _contents;
