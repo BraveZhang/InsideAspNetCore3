@@ -26,13 +26,13 @@ namespace App
             private readonly bool _forewardToNext;
             public StringContentMiddleware(RequestDelegate next, string contents, bool forewardToNext = true)
             {
-                _next = next;
+                _next = next;// next
                 _forewardToNext = forewardToNext;
                 _contents = contents;
             }
             public async Task Invoke(HttpContext context)
             {
-                await context.Response.WriteAsync(_contents);
+                await context.Response.WriteAsync(_contents);// ª·÷¥––4¥Œ£ø
                 if (_forewardToNext)
                 {
                     await _next(context);
