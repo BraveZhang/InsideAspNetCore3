@@ -13,9 +13,11 @@ namespace App
         {
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(builder => builder
                 .ConfigureServices(svcs => svcs
+                    // 注意生命周期
                     .AddSingleton<IFoo, Foo>()
                     .AddScoped<IBar, Bar>()
                     .AddTransient<IBaz, Baz>()
+
                     .AddControllersWithViews())
                 .Configure(app => app
                     .Use(next => httpContext => {

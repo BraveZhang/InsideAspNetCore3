@@ -7,7 +7,14 @@ namespace App
     {
         private readonly IHostApplicationLifetime _lifetime;
 
-        public HomeController(IHostApplicationLifetime lifetime, IFoo foo, IBar bar1, IBar bar2, IBaz baz1, IBaz baz2)
+        public HomeController(
+            IHostApplicationLifetime lifetime,
+            IFoo foo,
+            IBar bar1,
+            IBar bar2,
+            IBaz baz1,
+            IBaz baz2
+            )
             => _lifetime = lifetime;
 
         [HttpGet("/index")]
