@@ -9,6 +9,11 @@ namespace App
     public class HomeController : Controller
     {
         private readonly IFoo _foo;
+
+        /// <summary>
+        /// MVC注入方式
+        /// </summary>
+        /// <param name="foo"></param>
         public HomeController(IFoo foo) => _foo = foo;
 
         [HttpGet("/")]
