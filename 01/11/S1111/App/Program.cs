@@ -10,7 +10,7 @@ namespace App
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
                     .UseStartup<Startup>())
-                .UseServiceProviderFactory(new CatServiceProviderFactory())
+                .UseServiceProviderFactory(new CatServiceProviderFactory())// 第三方Cat框架注入，之前学过
                 .Build()
                 .Run();
         }

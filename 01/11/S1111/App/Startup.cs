@@ -6,7 +6,7 @@ namespace App
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app, IFoo foo, IBar bar, IBaz baz)
+        public void Configure(IApplicationBuilder app, IFoo foo, IBar bar, IBaz baz)// 消费
         {
             app.Run(async context =>
             {
