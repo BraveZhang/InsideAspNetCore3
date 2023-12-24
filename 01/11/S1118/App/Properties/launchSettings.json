@@ -4,7 +4,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        //"ASPNETCORE_ENVIRONMENT": "Staging"  // 若果该配置启用，则输入命令的方式传参不起作用，需要特别注意！
       },
       "applicationUrl": "http://localhost:5000/"
     }
