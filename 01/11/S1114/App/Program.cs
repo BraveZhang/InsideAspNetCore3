@@ -12,7 +12,7 @@ namespace App
                 .UseSetting("Foobar:Foo", "Foo")
                 .UseSetting("Foobar:Bar", "Bar")
                 .UseSetting("Baz", "Baz")
-                .UseSetting("urls", "http://0.0.0.0:8888;http://0.0.0.0:9999")
+                .UseSetting("urls", "http://0.0.0.0:8888;http://0.0.0.0:9999")// 可以注册多个监听地址和端口
                 .UseStartup<Startup>())
             .Build()
             .Run();
