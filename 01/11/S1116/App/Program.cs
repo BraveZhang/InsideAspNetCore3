@@ -10,7 +10,7 @@ namespace App
         static void Main()
         {
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(builder => builder
-                .ConfigureAppConfiguration(config => config
+                .ConfigureAppConfiguration(config => config// 与.UseConfiguration()效果一样，不同的方式满足不同的业务需要
                     .AddInMemoryCollection(new Dictionary<string, string>
                     {
                         ["Foobar:Foo"] = "Foo",
