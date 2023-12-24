@@ -11,7 +11,7 @@ namespace App
         static void Main()
         {
             var configuration = new ConfigurationBuilder()
-                .AddInMemoryCollection(new Dictionary<string, string>
+                .AddInMemoryCollection(new Dictionary<string, string>// 用户可以自定义配置
                 {
                     ["Foobar:Foo"] = "Foo",
                     ["Foobar:Bar"] = "Bar",
