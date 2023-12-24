@@ -13,7 +13,7 @@ namespace App
         {
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(builder => builder
                 .ConfigureLogging(options => options.ClearProviders())
-                .UseStartup<Startup>()
+                .UseStartup<Startup>()// 注意UseStartup内部会初始化ApplicationName，所以针对ApplicationName的设置要在此之后
                 .UseSetting("environment", "Staging")
                 .UseSetting("contentRoot", Path.Combine(Directory.GetCurrentDirectory(), "contents"))
                 .UseSetting("webroot", Path.Combine(Directory.GetCurrentDirectory(), "contents/web"))
