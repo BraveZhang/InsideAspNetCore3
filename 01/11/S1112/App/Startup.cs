@@ -11,11 +11,11 @@ namespace App
     {
         private readonly IConfiguration _configuration;
 
-        public Startup(IConfiguration configuration) => _configuration = configuration;
+        public Startup(IConfiguration configuration) => _configuration = configuration;// 注入IConfiguration
 
-        public void ConfigureServices(IServiceCollection services) => services.Configure<FoobarOptions>(_configuration);
+        public void ConfigureServices(IServiceCollection services) => services.Configure<FoobarOptions>(_configuration);// 映射IConfiguration为FoobarOptions
 
-        public void Configure(IApplicationBuilder app, IOptions<FoobarOptions> optionsAccessor)
+        public void Configure(IApplicationBuilder app, IOptions<FoobarOptions> optionsAccessor)// 消费IOptions<FoobarOptions>，第7章Options模式
         {
             var options = optionsAccessor.Value;
             var json = JsonConvert.SerializeObject(options, Formatting.Indented);
