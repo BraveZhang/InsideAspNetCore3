@@ -16,13 +16,13 @@ namespace App
         static void Main(string[] args)
         {
             var config = new ConfigurationBuilder()
-                    .AddCommandLine(args)
+                    .AddCommandLine(args)// 命令行方式传参
                     .Build();
 
             Host.CreateDefaultBuilder().ConfigureWebHostDefaults(builder => builder
                 .ConfigureLogging(options => options.ClearProviders())
-                .UseSetting("hostingStartupAssemblies", config["hostingStartupAssemblies"])
-                .UseSetting("preventHostingStartup", config["preventHostingStartup"])
+                .UseSetting("hostingStartupAssemblies", config["hostingStartupAssemblies"])// 必须设置
+                .UseSetting("preventHostingStartup", config["preventHostingStartup"])// 必须设置
                 .Configure(app => app.Run(context => Task.CompletedTask)))
             .Build()
             .Run();

@@ -8,5 +8,5 @@ public abstract class HostingStartupBarBase : IHostingStartup
 {
     public void Configure(IWebHostBuilder builder) => Console.WriteLine($"{GetType().Name}.Configure()");
 }
-public class Bar : HostingStartupBarBase { }
-public class Baz : HostingStartupBarBase { }
+public class Bar : HostingStartupBarBase { }// HostingStartupBarBase公共抽离出来
+public class Baz : HostingStartupBarBase { }// HostingStartupBarBase公共抽离出来
