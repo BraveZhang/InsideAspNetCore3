@@ -18,9 +18,9 @@ namespace App
 
         public async Task InvokeAsync(HttpContext context)
         {
-            await context.Response.WriteAsync(_preContents);
+            await context.Response.WriteAsync(_preContents);// 前置
             await _next(context);
-            await context.Response.WriteAsync(_postContents);
+            await context.Response.WriteAsync(_postContents);// 后置
         }
     }
 
