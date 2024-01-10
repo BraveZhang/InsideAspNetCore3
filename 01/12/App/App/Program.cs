@@ -7,16 +7,16 @@ class Program
 {
     static void Main()
     {
-        Host.CreateDefaultBuilder()
-            .ConfigureWebHost(builder => builder
+        Host.CreateDefaultBuilder()// 创建IHostBuilder对象
+            .ConfigureWebHost(builder => builder// IHostBuilder对象通过扩展方法注册服务器HttpListenerServer和中间件FooMiddleware、BarMiddleware、BazMiddleware
                 .UseHttpListenerServer()
                 .Configure(app => app
                     .Use(FooMiddleware)
                     .Use(BarMiddleware)
                     .Use(BazMiddleware)))
-            .Build()
-            .Run();
-    }
+            .Build()// IHostBuilder对象创建IHost对象
+            .Run();// IHost对象运行所有承载的服务
+        }
 
     public static RequestDelegate FooMiddleware(RequestDelegate next) => async context =>
         {

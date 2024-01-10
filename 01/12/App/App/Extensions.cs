@@ -29,8 +29,12 @@ namespace App
 
         public static IHostBuilder ConfigureWebHost(this IHostBuilder builder, Action<WebHostBuilder> configure)
         {
+            // 先创建ApplicationBuilder对象
+            // 利用ApplicationBuilder对象和IHostBuilder对象共同创建WebHostBuilder对象
             var webHostBuilder = new WebHostBuilder(builder, new ApplicationBuilder());
+            // 将webHostBuilder作为参数调用委托方法
             configure?.Invoke(webHostBuilder);
+            // 注册WebHostedService服务
             builder.ConfigureServices(svcs => svcs.AddSingleton<IHostedService>(provider =>
             {
                 var server = provider.GetRequiredService<IServer>();
