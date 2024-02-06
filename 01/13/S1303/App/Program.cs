@@ -23,6 +23,7 @@ namespace App
                     listener.EnableEvents(args.EventSource, EventLevel.LogAlways);
                 }
             };
+
             listener.EventWritten += (sender, args) =>
             {
                 Console.WriteLine(args.EventName);
