@@ -23,6 +23,7 @@ namespace App
             var elapsed = new TimeSpan((long)(timestampToTicks * (timestamp - startTimestamp)));
             Console.WriteLine($"Request finished in {elapsed.TotalMilliseconds}ms { httpContext.Response.StatusCode}");
         }
+
         [DiagnosticName("Microsoft.AspNetCore.Hosting.UnhandledException")]
         public void OnException(HttpContext httpContext, long timestamp, Exception exception)
         {
