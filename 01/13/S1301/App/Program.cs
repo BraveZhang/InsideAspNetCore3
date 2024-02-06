@@ -15,17 +15,20 @@ namespace App
         {
             Host.CreateDefaultBuilder()
                 .ConfigureLogging(builder => builder.AddConsole(options => options.IncludeScopes = true))
-                .ConfigureWebHostDefaults(builder => builder.Configure(app => app.Run(context =>
-                    {
-                        var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
-                        logger.LogInformation($"Log for event Foobar");
-                        if (context.Request.Path == new PathString("/error"))
+                .ConfigureWebHostDefaults(builder => builder.Configure(
+                    app => app.Run(context =>
                         {
-                            throw new InvalidOperationException(
-                            "Manually throw exception.");
-                        }
-                        return Task.CompletedTask;
-                    })))
+                            var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+                            logger.LogInformation($"Log for event Foobar");
+
+                            if (context.Request.Path == new PathString("/error"))
+                            {
+                                throw new InvalidOperationException(
+                                "Manually throw exception.");
+                            }
+
+                            return Task.CompletedTask;
+                        })))
                 .Build()
                 .Run();
         }
