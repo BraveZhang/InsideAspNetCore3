@@ -11,6 +11,7 @@ namespace App
         public static void Main()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "doc");
+            // 映射方式
             var options = new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(path),
@@ -19,7 +20,7 @@ namespace App
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder.Configure(app => app
                     .UseStaticFiles()
-                    .UseStaticFiles(options)))
+                    .UseStaticFiles(options)))// 传入options
                 .Build()
                 .Run();
         }
