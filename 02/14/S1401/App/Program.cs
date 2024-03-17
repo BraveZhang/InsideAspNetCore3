@@ -8,9 +8,11 @@ namespace App
     {
         public static void Main()
         {
-            Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(builder => builder.Configure(app => app.UseStaticFiles()))
-                .Build().Run();
+            Host.CreateDefaultBuilder()// 返回IHostBuilder
+                .ConfigureWebHostDefaults(builder => builder.Configure(// builder参数：IWebHostBuilder
+                    app => app.UseStaticFiles()))// app参数：IApplicationBuilder
+                .Build()// 返回IHost
+                .Run();
         }
     }
 }
