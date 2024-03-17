@@ -17,7 +17,7 @@ namespace App
                 FileProvider = fileProvider,
                 RequestPath = "/documents"
             };
-            var diretoryOptions = new DirectoryBrowserOptions
+            var diretoryOptions = new DirectoryBrowserOptions// 目录浏览配置项
             {
                 FileProvider = fileProvider,
                 RequestPath = "/documents"
@@ -27,8 +27,8 @@ namespace App
                 .ConfigureWebHostDefaults(builder => builder.Configure(app => app
                     .UseStaticFiles()
                     .UseStaticFiles(fileOptions)
-                    .UseDirectoryBrowser()
-                    .UseDirectoryBrowser(diretoryOptions)))
+                    .UseDirectoryBrowser()// 默认
+                    .UseDirectoryBrowser(diretoryOptions)))// 非默认，传参
                 .Build()
                 .Run();
         }
