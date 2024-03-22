@@ -11,7 +11,7 @@ namespace App
             var options = new StaticFileOptions
             {
                 ServeUnknownFileTypes = true,
-                DefaultContentType = "image/jpg"
+                DefaultContentType = "image/jpg"// 默认类型
             };
 
             Host.CreateDefaultBuilder()

@@ -10,7 +10,7 @@ namespace App
         public static void Main()
         {
             var contentTypeProvider = new FileExtensionContentTypeProvider();
-            contentTypeProvider.Mappings.Add(".img", "image/jpg");
+            contentTypeProvider.Mappings.Add(".img", "image/jpg");// 可以添加多个媒体类型
             var options = new StaticFileOptions
             {
                 ContentTypeProvider = contentTypeProvider
