@@ -31,7 +31,7 @@ namespace App
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder.Configure(app => app
                     .UseDefaultFiles()
-                    .UseDefaultFiles(defaultOptions)
+                    .UseDefaultFiles(defaultOptions)// 注意注册的中间件顺序
                     .UseStaticFiles()
                     .UseStaticFiles(fileOptions)
                     .UseDirectoryBrowser()
