@@ -34,8 +34,8 @@ namespace App
 
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder.Configure(app => app
-                    .UseDefaultFiles(defaultOptions1)
-                    .UseDefaultFiles(defaultOptions2)
+                    .UseDefaultFiles(defaultOptions1)//为何要注册两次？
+                    .UseDefaultFiles(defaultOptions2)//为何要注册两次？
                     .UseStaticFiles()
                     .UseStaticFiles(fileOptions)
                     .UseDirectoryBrowser()
