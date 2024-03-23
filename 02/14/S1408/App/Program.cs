@@ -9,7 +9,8 @@ namespace App
         public static void Main()
         {
             Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(builder => builder.Configure(app => app.UseMiddleware<StaticFileMiddleware>()))
+                .ConfigureWebHostDefaults(builder => builder.Configure(app => 
+                app.UseMiddleware<StaticFileMiddleware>()))
                 .Build().Run();
         }
     }
