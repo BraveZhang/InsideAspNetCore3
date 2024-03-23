@@ -10,7 +10,7 @@ namespace App
         {
             var options = new DirectoryBrowserOptions
             {
-                Formatter = new ListDirectoryFormatter()
+                Formatter = new ListDirectoryFormatter()// 自定义
             };
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder.Configure(
