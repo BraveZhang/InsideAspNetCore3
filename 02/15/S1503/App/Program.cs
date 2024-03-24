@@ -20,7 +20,8 @@ namespace App
 
         public static void Main()
         {
-            var template = "weather/{city?}/{days?}";
+            var template = "weather/{city?}/{days?}";// 方式一：通过？方式，同时需要修改WeatherForecast逻辑
+            // 方式二："weather/{city=010}/{days=4}"，通过=方式，无需修改WeatherForecast逻辑，更简洁
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
                     .ConfigureServices(svcs => svcs.AddRouting())
