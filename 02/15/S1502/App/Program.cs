@@ -26,7 +26,7 @@ namespace App
                     .ConfigureServices(svcs => svcs.AddRouting())
                     .Configure(app => app
                         .UseRouting()
-                        .UseEndpoints(routes => routes.MapGet(template, WeatherForecast))))
+                        .UseEndpoints(routes => routes.MapGet(template, WeatherForecast))))// 设置内联约束
                 .Build()
                 .Run();
         }
