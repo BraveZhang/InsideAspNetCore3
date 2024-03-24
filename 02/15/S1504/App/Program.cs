@@ -20,7 +20,7 @@ namespace App
 
         public static void Main()
         {
-            var template = "weather/{city=010}/{days=4}";
+            var template = "weather/{city=010}/{days=4}";// 第二种简洁方式
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
                     .ConfigureServices(svcs => svcs.AddRouting())
