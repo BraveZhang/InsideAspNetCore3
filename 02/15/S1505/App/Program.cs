@@ -21,7 +21,7 @@ namespace App
 
         public static void Main()
         {
-            var template = "weather/{city}/{year}.{month}.{day}"; Host.CreateDefaultBuilder()
+            var template = "weather/{city}/{year}.{month}.{day}"; Host.CreateDefaultBuilder()// 方式一：{year}.{month}.{day}
                 .ConfigureWebHostDefaults(builder => builder
                     .ConfigureServices(svcs => svcs.AddRouting())
                     .Configure(app => app
