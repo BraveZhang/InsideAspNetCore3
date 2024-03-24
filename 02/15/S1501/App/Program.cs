@@ -32,7 +32,7 @@ namespace App
 
         public static async Task WeatherForecast(HttpContext context)
         {
-            var city = (string)context.GetRouteData().Values["city"];
+            var city = (string)context.GetRouteData().Values["city"];// GetRouteData获取路由相关信息
             city = _cities[city];
             int days = int.Parse(context.GetRouteData().Values["days"].ToString());
             var report = new WeatherReport(city, days);
