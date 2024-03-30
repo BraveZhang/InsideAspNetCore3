@@ -16,7 +16,10 @@ namespace App
     {
         public static void Main()
         {
+            // 路由模板字符串
             var template = @"weather/{city:regex(^0\d{{2,3}}$)=010}/{days:int:range(1,4)=4}/{detailed?}";
+
+            // RoutePatternFactory通过路由模板创建路由模式对象
             var pattern = RoutePatternFactory.Parse(
                 pattern: template,
                 defaults: null,
@@ -24,11 +27,22 @@ namespace App
                 requiredValues: new { city = "010", days = 4 });
 
             Host.CreateDefaultBuilder()
-                .ConfigureWebHostDefaults(builder => builder .Configure(app => app.Run(context => context.Response.WriteAsync(Format(pattern)))))
+                .ConfigureWebHostDefaults(
+                    builder => builder.Configure(
+                        app => app.Run(
+                            context => context.Response.WriteAsync(Format(pattern))// 将路由模式对象格式化输出到浏览器中
+                            )
+                        )
+                    )
                 .Build()
                 .Run();
         }
 
+        /// <summary>
+        /// 格式化路由模板
+        /// </summary>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
         private static string Format(RoutePattern pattern)
         {
             var builder = new StringBuilder();
@@ -77,7 +91,7 @@ namespace App
                 else
                 {
                     var parameter = (RoutePatternParameterPart)part;
-                    return $"Parameter: Name = {parameter.Name}; Default = {parameter.Default}; IsOptional = { parameter.IsOptional}; IsCatchAll = { parameter.IsCatchAll}; ParameterKind = { parameter.ParameterKind}";
+                    return $"Parameter: Name = {parameter.Name}; Default = {parameter.Default}; IsOptional = {parameter.IsOptional}; IsCatchAll = {parameter.IsCatchAll}; ParameterKind = {parameter.ParameterKind}";
                 }
             }
         }
