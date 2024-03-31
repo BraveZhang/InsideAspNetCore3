@@ -26,7 +26,7 @@ namespace App
                 {
                     CultureInfo.CurrentCulture = CultureInfo.CurrentUICulture = new CultureInfo(culture.ToString());
                 }
-                await _next(context);
+                await _next(context);// 传递给后续的中间件处理
             }
             finally
             {
