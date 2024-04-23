@@ -15,10 +15,12 @@ namespace App
             Host.CreateDefaultBuilder()
                 .ConfigureServices(svcs => svcs.AddRouting())
                 .ConfigureWebHostDefaults(builder => builder.Configure(app => app
-                    .UseExceptionHandler("/error")
+                    .UseExceptionHandler("/error")// 重载UseExceptionHandler，传入路径
                     .UseRouting()
-                    .UseEndpoints(endpoints => endpoints.MapGet("error", HandleAsync))
-                    .Run(context => Task.FromException(new InvalidOperationException("Manually thrown exception...")))))
+                    .UseEndpoints(endpoints => endpoints.MapGet("error", HandleAsync))// 注册路由来相应异常处理
+                    .Run(context =>
+                        Task.FromException(new InvalidOperationException("Manually thrown exception..."))
+                    )))
                 .Build()
                 .Run();
 
