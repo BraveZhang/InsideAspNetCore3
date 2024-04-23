@@ -12,7 +12,9 @@ namespace App
     {
         public static void Main()
         {
+            // 自定义定制异常
             var options = new ExceptionHandlerOptions { ExceptionHandler = HandleAsync };
+
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder.Configure(app => app
                     .UseExceptionHandler(options)
@@ -20,6 +22,7 @@ namespace App
                 .Build()
                 .Run();
 
+            // 自定义定制异常处理方法
             Task HandleAsync(HttpContext context)
                 => context.Response.WriteAsync("Unhandled exception occurred!");
         }
