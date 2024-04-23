@@ -21,6 +21,7 @@ namespace App
             .Build()
             .Run();
 
+            // RequestDelegate
             static Task HandleAsync(HttpContext httpContext)
                 => Task.FromException(new InvalidOperationException("Manually thrown exception..."));
         }
