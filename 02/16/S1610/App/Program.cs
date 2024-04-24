@@ -9,7 +9,9 @@ namespace App
     {
         public static void Main()
         {
-            var options = new DeveloperExceptionPageOptions { SourceCodeLineCount = 3 };
+            // 可以进行配置，指定错误位置的上下文代码行数
+            var options = new DeveloperExceptionPageOptions { SourceCodeLineCount = 6 };
+
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
                     .ConfigureServices(svcs => svcs
