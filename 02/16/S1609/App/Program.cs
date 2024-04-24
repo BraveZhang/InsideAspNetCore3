@@ -14,7 +14,7 @@ namespace App
                     .ConfigureServices(svcs => svcs
                         .AddRouting()
                         .AddControllersWithViews()
-                        .AddRazorRuntimeCompilation())
+                        .AddRazorRuntimeCompilation())// 支持运行时编译扩展方法
                     .Configure(app => app
                         .UseDeveloperExceptionPage()
                         .UseRouting()
