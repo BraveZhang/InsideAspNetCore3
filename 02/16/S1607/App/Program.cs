@@ -15,11 +15,12 @@ namespace App
         {
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(webBuilder => webBuilder.Configure(app => app
-                    .UseStatusCodePages(app2 => app2.Run(HandleAsync))
+                    .UseStatusCodePages(app2 => app2.Run(HandleAsync))// 第二种方式重载，注册到IApplicationBuilder上
                     .Run(context => Task.Run(() => context.Response.StatusCode = _random.Next(400, 599)))))
                 .Build()
                 .Run();
 
+            // 处理逻辑
             static async Task HandleAsync(HttpContext context)
             {
                 var response = context.Response;
