@@ -15,7 +15,9 @@ namespace App
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(webBuilder => webBuilder.Configure(app => app
                    .UseStatusCodePages("text/plain", "Error occurred ({0})")
-                   .Run(context => Task.Run(() => context.Response.StatusCode = 500))))
+                   .Run(context =>
+                        Task.Run(() => context.Response.StatusCode = 400)
+                   )))
             .Build()
             .Run();
         }
