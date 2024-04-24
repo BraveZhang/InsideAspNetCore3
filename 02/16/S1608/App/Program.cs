@@ -15,7 +15,7 @@ namespace App
         {
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
-                    .ConfigureServices(svcs => svcs.AddSingleton<IDeveloperPageExceptionFilter, FakeExceptionFilter>())
+                    .ConfigureServices(svcs => svcs.AddSingleton<IDeveloperPageExceptionFilter, FakeExceptionFilter>())// 注入FakeExceptionFilter
                     .Configure(app => app
                         .UseDeveloperExceptionPage()
                         .Run(context => Task.FromException(new InvalidOperationException("Manually thrown exception...")))))
@@ -23,6 +23,9 @@ namespace App
                 .Run();
         }
 
+        /// <summary>
+        /// 自定义异常过滤
+        /// </summary>
         private class FakeExceptionFilter : IDeveloperPageExceptionFilter
         {
             public Task HandleExceptionAsync(ErrorContext errorContext, Func<ErrorContext, Task> next)
