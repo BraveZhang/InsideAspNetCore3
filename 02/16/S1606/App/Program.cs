@@ -16,11 +16,14 @@ namespace App
         {
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(webBuilder => webBuilder.Configure(app => app
-                    .UseStatusCodePages(HandleAsync)
-                    .Run(context => Task.Run(() => context.Response.StatusCode = _random.Next(400, 599)))))
+                    .UseStatusCodePages(HandleAsync)// Func<StatusCodeContext, Task> handler
+                    .Run(context => 
+                            Task.Run(() => context.Response.StatusCode = _random.Next(400, 599))
+                    )))
                 .Build()
                 .Run();
 
+            // 状态处理器
             static async Task HandleAsync(StatusCodeContext context)
             {
                 var response = context.HttpContext.Response;
