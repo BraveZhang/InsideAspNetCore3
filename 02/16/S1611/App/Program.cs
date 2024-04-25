@@ -17,13 +17,15 @@ public class Program
             .ConfigureWebHostDefaults(builder => builder
             .ConfigureServices(svcs => svcs.AddRouting())
             .Configure(app => app
-                .UseExceptionHandler("/error")
+                .UseExceptionHandler("/error")// 注册ExceptionHandlerMiddleware中间件，传入异常处理路径
                 .UseRouting()
                 .UseEndpoints(endpoints => endpoints.MapGet("error", HandleErrorAsync))
                 .Run(context => Task.FromException(new InvalidOperationException("Manually thrown exception")))))
             .Build()
             .Run();
 
+
+        // 内部方法，自定义异常返回给用户
         static async Task HandleErrorAsync(HttpContext context)
         {
             context.Response.ContentType = "text/html";
