@@ -22,8 +22,10 @@ namespace App
             .Build()
             .Run();
 
+            // 异常处理
             static Task HandleAsync(HttpContext context) => context.Response.WriteAsync("Error occurred!");
 
+            // 执行处理方法
             static async Task ProcessAsync(HttpContext context)
             {
                 context.Response.GetTypedHeaders().CacheControl = new CacheControlHeaderValue
