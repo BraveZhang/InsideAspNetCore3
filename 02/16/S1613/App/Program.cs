@@ -29,7 +29,7 @@ namespace App
                 context.Response.StatusCode = 401;
                 if (_random.Next() % 2 == 0)
                 {
-                    context.Features.Get<IStatusCodePagesFeature>().Enabled = false;
+                    context.Features.Get<IStatusCodePagesFeature>().Enabled = false;// 决定StatusCodePagesMiddleware是否响应，如果为false则不会调用HandleAsync方法
                 }
                 return Task.CompletedTask;
             }
