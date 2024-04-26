@@ -19,17 +19,19 @@ namespace App
                 .ConfigureWebHostDefaults(builder => builder
                     .ConfigureServices(svcs => svcs.AddRouting())
                     .Configure(app => app
-                        .UseStatusCodePagesWithReExecute("/error/{0}")
+                        .UseStatusCodePagesWithReExecute("/error/{0}")// UseStatusCodePagesWithReExecute 服务端重定向
                         .UseRouting()
                         .UseEndpoints(endpoints => endpoints.MapGet("error/{statuscode}", HandleAsync))
                         .Run(ProcessAsync)))
                 .Build()
                 .Run();
+
             static async Task HandleAsync(HttpContext context)
             {
                 var statusCode = context.GetRouteData().Values["statuscode"];
                 await context.Response.WriteAsync($"Error occurred ({statusCode})");
             }
+
             static Task ProcessAsync(HttpContext context)
             {
                 context.Response.StatusCode = _random.Next(400, 599);
