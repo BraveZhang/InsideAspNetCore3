@@ -19,17 +19,21 @@ namespace App
                 .ConfigureWebHostDefaults(builder => builder
                     .ConfigureServices(svcs => svcs.AddRouting())
                     .Configure(app => app
-                        .UseStatusCodePagesWithRedirects("~/error/{0}")
+                        .UseStatusCodePagesWithRedirects("~/error/{0}")// 路由模板
                         .UseRouting()
-                        .UseEndpoints(endpoints => endpoints.MapGet("error/{statuscode}", HandleAsync))
-                        .Run(ProcessAsync)))
+                        .UseEndpoints(endpoints => endpoints.MapGet("error/{statuscode}", HandleAsync))// 针对上面路由模板占位符进行传参{statuscode}
+                        .Run(ProcessAsync)))// 程序启动时候执行ProcessAsync方法
                 .Build()
                 .Run();
+            
+            // 中间件的处理方法
             static async Task HandleAsync(HttpContext context)
             {
-                var statusCode = context.GetRouteData().Values["statuscode"];
+                var statusCode = context.GetRouteData().Values["statuscode"];// 从上下文中获取statuscode参数
                 await context.Response.WriteAsync($"Error occurred ({statusCode})");
             }
+
+            // 启动执行的方法
             static Task ProcessAsync(HttpContext context)
             {
                 context.Response.StatusCode = _random.Next(400, 599);
