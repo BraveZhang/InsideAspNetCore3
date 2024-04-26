@@ -16,9 +16,9 @@ namespace App
         {
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
-                    .ConfigureServices(svcs => svcs.AddResponseCaching())
+                    .ConfigureServices(svcs => svcs.AddResponseCaching())// 注册AddResponseCaching添加HTTP响应缓存中间件服务
                     .Configure(app => app
-                        .UseResponseCaching()
+                        .UseResponseCaching()// 添加HTTP响应缓存中间件
                         .Run(ProcessAsync)))
                 .Build()
                 .Run();
