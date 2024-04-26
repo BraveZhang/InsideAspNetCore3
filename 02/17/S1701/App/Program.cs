@@ -15,11 +15,12 @@ namespace App
         {
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
-                    .ConfigureServices(svcs => svcs.AddMemoryCache())
+                    .ConfigureServices(svcs => svcs.AddMemoryCache())// 注册AddMemoryCache缓存中间件
                     .Configure(app => app.Run(ProocessAsync)))
                 .Build()
                 .Run();
 
+            // 启动运行
             static async Task ProocessAsync(HttpContext httpContext)
             {
                 var cache = httpContext.RequestServices.GetRequiredService<IMemoryCache>();
