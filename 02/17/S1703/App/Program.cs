@@ -17,7 +17,7 @@ namespace App
         {
             Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(builder => builder
-                    .ConfigureServices(svcs => svcs.AddDistributedSqlServerCache(options =>
+                    .ConfigureServices(svcs => svcs.AddDistributedSqlServerCache(options =>// AddDistributedSqlServerCache注册分布式sqlserver中间件
                     {
                         options.ConnectionString = "server=.;database=demodb;uid=sa;pwd=password";
                         options.SchemaName = "dbo";
