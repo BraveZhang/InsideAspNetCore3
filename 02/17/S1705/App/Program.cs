@@ -36,6 +36,7 @@ namespace App
                 };
                 var isUtc = httpContext.Request.Query.ContainsKey("utc");
                 await response.WriteAsync(isUtc ? DateTime.UtcNow.ToString() : DateTime.Now.ToString());
+                // 设置查询参数，用于响应参数查询（中间件默认只针对请求路径缓存，不针对参数缓存）
                 var feature = httpContext.Features.Get<IResponseCachingFeature>();
                 feature.VaryByQueryKeys = new string[] { "utc" };
             }
