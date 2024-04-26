@@ -17,7 +17,7 @@ public class Program
     {
         Host.CreateDefaultBuilder()
             .ConfigureWebHostDefaults(builder => builder
-                .ConfigureServices(svcs => svcs.AddDistributedRedisCache(options =>
+                .ConfigureServices(svcs => svcs.AddDistributedRedisCache(options =>// AddDistributedRedisCache添加分布式缓存中间件
                 {
                     options.Configuration = "localhost";
                     options.InstanceName = "Demo";
